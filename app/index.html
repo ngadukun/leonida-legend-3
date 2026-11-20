@@ -1,0 +1,86 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Leonida Legend — GTA VI trophy guide &amp; tracker</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header class="hero">
+  <div class="hero-brand">
+    <div class="logo-tile" aria-hidden="true">LL</div>
+    <div class="hero-text">
+      <h1>Leonida Legend</h1>
+      <p class="tagline">GTA VI trophy guide &amp; tracker — offline, on your machine</p>
+    </div>
+  </div>
+  <div class="hero-progress">
+    <div class="ring-wrap">
+      <svg class="ring" viewBox="0 0 120 120" width="104" height="104" role="img" aria-label="Progress to Platinum">
+        <circle class="ring-track" cx="60" cy="60" r="52"></circle>
+        <circle class="ring-fill" id="ring-fill" cx="60" cy="60" r="52"></circle>
+      </svg>
+      <div class="ring-label"><span id="ring-percent">0%</span><small>to Platinum</small></div>
+    </div>
+    <div class="hero-counts">
+      <p class="earned-line" id="earned-line">0 of 55 earned</p>
+      <p class="count-line" id="count-line">Gold 0 of 2 · Silver 0 of 6 · Missables left 8</p>
+    </div>
+  </div>
+</header>
+
+<nav class="pills" aria-label="Views">
+  <a class="pill" data-nav="tracker" href="#/">Tracker</a>
+  <a class="pill" data-nav="roadmap" href="#roadmap">Roadmap to Platinum</a>
+  <a class="pill" data-nav="watch" href="#watch">Watch-outs <span class="chip">8 missable</span></a>
+  <a class="pill" data-nav="missables" href="#missables">Missables only</a>
+</nav>
+
+<section class="toolbar" id="toolbar" aria-label="Filters">
+  <label class="field grow">Search
+    <input id="filter-search" type="search" placeholder="Trophy name or keyword…">
+  </label>
+  <label class="field">Tier
+    <select id="filter-tier">
+      <option value="all">All tiers</option>
+      <option value="platinum">Platinum</option>
+      <option value="gold">Gold</option>
+      <option value="silver">Silver</option>
+      <option value="bronze">Bronze</option>
+    </select>
+  </label>
+  <label class="field">Kind
+    <select id="filter-kind">
+      <option value="all">All kinds</option>
+      <option value="story">Story</option>
+      <option value="activities">Activities</option>
+      <option value="collectibles">Collectibles</option>
+      <option value="crime">Crime</option>
+      <option value="feats">Feats</option>
+      <option value="partner">Partner</option>
+      <option value="moments">Moments</option>
+      <option value="world">World</option>
+      <option value="completion">Completion</option>
+    </select>
+  </label>
+  <label class="check"><input id="filter-hide-earned" type="checkbox"> Hide earned</label>
+  <label class="check"><input id="filter-spoilers" type="checkbox"> Spoilers off</label>
+  <div class="toolbar-actions">
+    <button id="export-progress" type="button">Export progress</button>
+    <label class="import-button">Import progress <input id="import-progress" type="file" accept="application/json"></label>
+  </div>
+</section>
+
+<main id="view" aria-live="polite"></main>
+
+<footer class="foot">
+  <p>Leonida Legend runs entirely offline from its own files — no accounts, no uploads, no tracking. Trophy names
+  and descriptions are shown as PlayStation publishes them; every guide is written for this entry and cites its
+  sources by name. Not affiliated with Rockstar Games or PlayStation. Sources consulted: PowerPyx trophy guide ·
+  PSNProfiles trophy guide · PlayStationTrophies.org guide · Exophase trophy list.</p>
+</footer>
+
+<script src="app.js"></script>
+</body>
+</html>
