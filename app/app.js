@@ -131,6 +131,28 @@ function renderProgress() {
   document.getElementById('earned-line').textContent = `${done} of ${TOTAL_TROPHIES} earned`;
   document.getElementById('count-line').textContent =
     `Gold ${gold} of 2 · Silver ${silver} of 6 · Missables left ${missablesLeft}`;
+  const slimProgress = document.getElementById('slim-progress');
+  if (slimProgress) {
+    slimProgress.textContent = `${done} of ${TOTAL_TROPHIES} earned · ${percent}% to Platinum`;
+  }
+}
+
+// ---------- slim header (content views) ----------
+
+/* The detail, roadmap, watch-outs and missables views swap the full hero for
+   this slim bar, so each view's own heading and first cards sit high on the
+   page instead of below the hero. It shows the same progress figures as the
+   hero, from the same state — renderProgress() keeps its text current. */
+function ensureSlimBar() {
+  if (document.getElementById('slim-bar')) return;
+  const bar = document.createElement('div');
+  bar.className = 'slim-bar';
+  bar.id = 'slim-bar';
+  bar.innerHTML = `
+    <span class="slim-tile" aria-hidden="true">LL</span>
+    <span class="slim-title">Leonida Legend</span>
+    <span class="slim-progress" id="slim-progress"></span>`;
+  document.querySelector('header.hero').after(bar);
 }
 
 // ---------- tracker views (full list, or missables only) ----------
@@ -266,6 +288,7 @@ function route() {
   const toolbar = document.getElementById('toolbar');
   const onTracker = r.name === 'tracker' || r.name === 'missables';
   toolbar.classList.toggle('hidden', !onTracker);
+  document.body.classList.toggle('slim-header', r.name !== 'tracker');
   document.querySelectorAll('[data-nav]').forEach((pill) => {
     pill.classList.toggle('active', pill.dataset.nav === r.name);
   });
@@ -308,6 +331,7 @@ function importProgress(file) {
 // ---------- wiring ----------
 
 function bindControls() {
+  ensureSlimBar();
   const view = document.getElementById('view');
   view.addEventListener('click', (event) => {
     if (event.target.matches('[data-toggle]')) return;

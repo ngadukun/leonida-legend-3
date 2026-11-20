@@ -38,7 +38,7 @@ a { color: var(--orange); }
   align-items: center;
   justify-content: space-between;
   gap: 16px 32px;
-  padding: 22px 28px 18px;
+  padding: 12px 28px 10px;
   border-bottom: 1px solid var(--line);
   background:
     radial-gradient(600px 220px at 12% -40%, rgba(255, 77, 126, 0.16), transparent 70%),
@@ -61,7 +61,7 @@ a { color: var(--orange); }
   box-shadow: 0 6px 24px rgba(255, 110, 90, 0.35);
 }
 
-.hero-text h1 { margin: 0; font-size: 34px; letter-spacing: 0.2px; }
+.hero-text h1 { margin: 0; font-size: 30px; letter-spacing: 0.2px; }
 .tagline { margin: 2px 0 0; color: var(--muted); font-size: 16px; }
 
 .hero-progress { display: flex; align-items: center; gap: 20px; }
@@ -90,6 +90,39 @@ a { color: var(--orange); }
 
 .earned-line { margin: 0; font-size: 22px; font-weight: 700; }
 .count-line { margin: 4px 0 0; color: var(--muted); }
+
+/* ---------- slim header (detail, roadmap, watch-outs, missables) ---------- */
+
+/* On the content views the full hero is swapped for this slim bar, so the
+   view's own heading and first cards sit high in the frame. Bar + nav pills
+   together stay under ~130px. */
+.slim-bar { display: none; }
+body.slim-header .hero { display: none; }
+body.slim-header .slim-bar {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 10px 28px;
+  border-bottom: 1px solid var(--line);
+  background:
+    radial-gradient(600px 220px at 12% -40%, rgba(255, 77, 126, 0.16), transparent 70%),
+    radial-gradient(700px 260px at 88% -60%, rgba(255, 154, 61, 0.13), transparent 70%),
+    var(--panel);
+}
+.slim-tile {
+  width: 36px;
+  height: 36px;
+  border-radius: 10px;
+  display: grid;
+  place-items: center;
+  font-size: 15px;
+  font-weight: 800;
+  color: #14100c;
+  background: linear-gradient(135deg, var(--pink), var(--orange));
+  flex: none;
+}
+.slim-title { font-size: 19px; font-weight: 700; letter-spacing: 0.2px; }
+.slim-progress { margin-left: auto; color: var(--muted); font-weight: 600; text-align: right; }
 
 /* ---------- nav pills ---------- */
 
@@ -132,9 +165,9 @@ a { color: var(--orange); }
   display: flex;
   flex-wrap: wrap;
   align-items: end;
-  gap: 12px 18px;
-  margin: 14px 28px 6px;
-  padding: 16px 18px;
+  gap: 10px 14px;
+  margin: 10px 28px 4px;
+  padding: 10px 14px;
   background: var(--panel);
   border: 1px solid var(--line);
   border-radius: var(--radius);
